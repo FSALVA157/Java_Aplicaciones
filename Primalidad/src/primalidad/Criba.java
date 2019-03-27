@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class Primalidad {
+public class Criba {
 
 
     public static void main(String[] args) {//inicio main
