@@ -11,11 +11,12 @@ public class CribaRecursiva {
         Arrays.fill(listado,true);
         LeerLista(listado);
         if(lsuperior < 2){
-            return;
-        }else{
+            Arrays.fill(listado,false);
             
+        }else{
+            int m = 0;
           //while(p != 0){
-              Recorrer(listado,2);
+              m = Recorrer(listado,Recorrer(listado,1));
          // }      
             System.out.println("");
             LeerLista(listado);
@@ -24,9 +25,9 @@ public class CribaRecursiva {
         
     }//fin cribar
     
-    public static void Recorrer(Boolean[] list, int posicion){
-        if(posicion > list.length){
-            return;
+    public static int Recorrer(Boolean[] list, int posicion){
+        if(posicion < 2){
+            posicion = 2;
         }else{
             
             if(list[posicion]){
@@ -34,9 +35,10 @@ public class CribaRecursiva {
                 int k = j*posicion;
                 while(k <= list.length){
                     if(list[k]){
-                        list[j] = false;
+                        list[k] = false;
                     }
-                    k = (j+1)*posicion;
+                    j++;
+                    k = j*posicion;
                 }
                 
                 
@@ -44,9 +46,9 @@ public class CribaRecursiva {
                     list[j] = false;
                 }*/
             }
-            Recorrer(list,posicion+1);
+            posicion++;
         }
-     
+     return posicion;
     }
     
     public static void LeerLista(Boolean[] lista){
