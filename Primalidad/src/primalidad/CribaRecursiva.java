@@ -16,7 +16,8 @@ public class CribaRecursiva {
         }else{
             int m = 0;
           //while(p != 0){
-              m = Recorrer(listado,Recorrer(listado,1));
+               Recorrer(listado,2);
+              
          // }      
             System.out.println("");
             LeerLista(listado);
@@ -25,15 +26,17 @@ public class CribaRecursiva {
         
     }//fin cribar
     
-    public static int Recorrer(Boolean[] list, int posicion){
-        if(posicion < 2){
-            posicion = 2;
+    public static void Recorrer(Boolean[] list, int posicion){
+        System.out.printf("valor de posicion: %d",posicion);
+        if(posicion > list.length-1){
+            System.out.println("Saliendo de bucle");
+            return;
         }else{
-            
+            System.out.printf("valor de l[%d]: %b %n",posicion,list[posicion]); 
             if(list[posicion]){
                 int j=2;
                 int k = j*posicion;
-                while(k <= list.length){
+                while(k < list.length){
                     if(list[k]){
                         list[k] = false;
                     }
@@ -47,8 +50,9 @@ public class CribaRecursiva {
                 }*/
             }
             posicion++;
+            Recorrer(list,posicion);
         }
-     return posicion;
+     
     }
     
     public static void LeerLista(Boolean[] lista){
