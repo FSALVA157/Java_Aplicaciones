@@ -78,7 +78,7 @@ public class Complejo implements ComplejoInterface{
 
     @Override
     public double modulo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Math.sqrt(Math.pow(this.GetReal(), 2) + Math.pow(this.GetImaginaria(), 2)));
     }
     
     
