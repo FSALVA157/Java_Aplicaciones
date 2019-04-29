@@ -70,7 +70,7 @@ public class NaturalImp implements Natural{
     }
 
     @Override
-    public void Raiz(int a, int b) {
+    public void Raiz(Natural a, Natural b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
