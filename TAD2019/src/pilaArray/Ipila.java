@@ -26,5 +26,8 @@ public interface Ipila {
     //POSTCONDICION: devuelve la pila modificada 
     public Object sacar();
     
+    //PRECONDICION: la pila sobre la que se opera debe haber sido creada previamente y no estar vacia
+    //POSTCONDICION: devuelve el elemento del tope de la pila y  la pila sin modificar 
+    public Object seek();
     
 }
