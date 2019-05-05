@@ -7,6 +7,11 @@ public class clsPilaArr implements Ipila{
     private Object[] pila;
     private int cabeza;
     private int tamPila;
+
+    public clsPilaArr() {
+    }
+    
+    
     
     public clsPilaArr(int tamano){
         this.tamPila = tamano;
@@ -22,30 +27,9 @@ public class clsPilaArr implements Ipila{
         this.cabeza--;
     }
     
-    public void reemplazar(clsPilaArr pila, int nuevo, int viejo){
-        clsPilaArr pilaAux = new clsPilaArr(pila.tamPila);
-        boolean bandera = true;
-        while(bandera || !pila.estaVacia()){
-            if((int)pila.seek() == viejo){
-                pila.sacar();
-                pila.meter(nuevo);
-                bandera = false;
-        
-            }else{
-                pilaAux.meter(pila.sacar());
-            }
-            
-        }
-        
-        if(!bandera){
-            System.out.println("SE HA EFECTUADO EL REEMPLAZO CON EXIT0");
-        }else{
-            System.out.println("EL ELEMENTO BUSCADO NO EXISTE EN LA PILA");
-        }
-                while(!pilaAux.estaVacia()){
-                    pila.meter(pilaAux.sacar());
-                }
-    }
+    public int getTamano(){
+        return this.tamPila;
+    } 
     
 
     @Override
@@ -90,6 +74,7 @@ public class clsPilaArr implements Ipila{
         Object aux = pila[cabeza];
         return aux;
     }
+    
     
     
 }
