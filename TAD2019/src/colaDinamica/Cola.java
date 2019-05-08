@@ -3,8 +3,8 @@ package colaDinamica;
 
 import recursos.*;
 public class Cola implements IContenedor{
-    Nodo inicio;
-    Nodo fin;
+   public Nodo inicio;
+   public Nodo fin;
    /* 
     public Cola(Object elemento){
         inicio = fin = new Nodo(elemento);
