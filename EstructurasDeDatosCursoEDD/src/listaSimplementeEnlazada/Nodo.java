@@ -16,4 +16,6 @@ public class Nodo {
         this.dato = d;
         this.siguiente = p;
     }
+     
+     
 }
