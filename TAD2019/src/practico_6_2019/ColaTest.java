@@ -41,7 +41,7 @@ public class ColaTest extends Cola {
              stack.meter(valor);
           }
          System.out.println("el tamaño de la cola es: " + cardinal(stack));
-         stack.recorrer();
+         //stack.recorrer();
          invertirCola(stack);
          
          
