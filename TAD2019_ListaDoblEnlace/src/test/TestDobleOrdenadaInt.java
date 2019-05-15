@@ -1,51 +1,42 @@
+
 package test;
 
-import contenedores.ListaDoble;
+import contenedores.ListaDobleOrdenadaInt;
 import javax.swing.JOptionPane;
 
-public class ListaDobleEnteros extends ListaDoble {
 
-    /*
-    public ListaDobleEnteros() {
-        super();
-    }
-     */
-    @Override
-    public void imprimeElemento(Object obj) {
-        System.out.print("[" + obj.toString() + "] --->");
-    }
-
+public class TestDobleOrdenadaInt extends ListaDobleOrdenadaInt {
+    
+    
     public static void main(String Args[]) {
         int opcion = 0;
-        ListaDobleEnteros lista = new ListaDobleEnteros();
+        ListaDobleOrdenadaInt lista = new ListaDobleOrdenadaInt();
         int elemento;
         int posicion;
         do {
             try {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Agregar un elemento a la lista\n 2. Eliminar un elemento de la lista\n 3. Recorrer Lista"
                         + "\n 4. Mostrar el Tamaño de la Lista\n 5. Buscar un Elemewnto\n"
-                        + " 6. Mostrar Elemento segun Posicion\n "
-                        + "7. Recorrer al Reves\n 8. Salir", "Menú de Opciones para Lista Doblemente Enlazada", 3));
+                        + " 6. Mostrar Elemento segun Posicion\n 7. Salir", "Menú de Opciones para Listas Ordenadas", 3));
                 switch (opcion) {
                     case 1:
                         try {
                             elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese un Número Entero para Insertar a la lista",
-                                    "Insertando Elemento", 3));
-                            posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la posicion de carga",
-                                    "Posición de Acceso", 3));
-                            lista.push(elemento, posicion);
+                                    "Insertando elemento", 3));
+                                                        
+                            lista.push(elemento);
 
-                        } catch (NumberFormatException n) {
-                            JOptionPane.showMessageDialog(null, n.getMessage(), "Error de Tipo de Dato", 3);
+                        } catch (Exception n) {
+                            JOptionPane.showMessageDialog(null, n.getMessage(), "Error en el Push", 3);
                         }
                         break;
                     case 2:
                         try {
-                            posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la posicion del elemento a eliminar",
-                                    "Posición de Acceso", 3));
-                            lista.pop(posicion);
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Entero a eliminar de la lista",
+                                    "Eliminar Elemento", 3));
+                            lista.pop(elemento);
                         } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, e.getMessage(), "Error de Tipo de Dato", 3);
+                            JOptionPane.showMessageDialog(null, e.getMessage(), "Error en el Pop", 3);
                         }
                         break;
                     case 3:
@@ -71,16 +62,13 @@ public class ListaDobleEnteros extends ListaDoble {
                         try {
                             posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la posicion del elemento a Mostrar",
                                     "Posición de Acceso", 3));
-                            JOptionPane.showMessageDialog(null, "El elemento de la Posicion: " + posicion + " es: " + (int) lista.seek(posicion), "Mostrar Elemento", 3);
-
+                            JOptionPane.showMessageDialog(null, "El elemento de la Posicion: " + posicion + " es: " + (int) lista.seek(posicion) , "Mostrar Elemento", 3);
+                            
                         } catch (Exception e) {
                             JOptionPane.showMessageDialog(null, e.getMessage(), "Error de Tipo de Dato al Mostrar", 3);
                         }
                         break;
                     case 7:
-                        lista.recorrerInverso();
-                        break;
-                    case 8:
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opcion Incorrecta");
@@ -91,10 +79,7 @@ public class ListaDobleEnteros extends ListaDoble {
             }
         } while (opcion != 7);
     }
-
-    @Override
-    public int buscar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
+   
+    
 }

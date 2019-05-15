@@ -83,18 +83,32 @@ public abstract class ListaDoble implements IListaDoble, IListaDoble2 {
 
     @Override
     public Object seek(int posicion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object obj = null;
+        if(!this.estaVacia()){
+            if(posicion < 0 || posicion >= this.tamanio()){
+                System.out.println("ERROR AL MOSTRAR: POSICION INVALIDA");
+            }else{
+                Nodo puntAuxAnt = this.inicio;
+                
+                for(int i = 0; i < posicion; i++){
+                    puntAuxAnt = puntAuxAnt.getSiguiente();
+                }
+                obj = puntAuxAnt.getDato();
+            }
+            
+        }else{
+            System.out.println("ERROR AL MOSTRAR: LA LISTA ESTA VACIA");
+        }
+        return obj;
     }
 
     @Override
-    public int buscar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public abstract int buscar(Object obj);
 
     @Override
     public int tamanio() {
         int c = 0;
-        if (this.estaVacia()) {
+        if (!this.estaVacia()) {
             c = this.contador + 1;
         }
         return c;
@@ -139,11 +153,26 @@ public abstract class ListaDoble implements IListaDoble, IListaDoble2 {
        }else{
             Nodo puntAux = this.inicio;
             while(puntAux != null){
-                this.imprimeElemento(puntAux.getDato());
+                //this.imprimeElemento(puntAux.getDato());
+                System.out.print("[" + puntAux.getDato().toString() + "]--->");
                 puntAux = puntAux.getSiguiente();
             }
        }
-       
+        System.out.println("");
+    }
+    
+    public void recorrerInverso(){
+        if(this.estaVacia()){
+            System.out.println("NADA QUE MOSTRAR LA LISTA ESTA VACIA");
+                 
+        }else{
+            Nodo puntAux = this.fin;
+            while(puntAux != null){
+                 System.out.print("[" + puntAux.getDato().toString() + "]<---");
+                 puntAux = puntAux.getAnterior();
+            }
+        }
+        System.out.println("");
     }
 
 }
