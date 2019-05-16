@@ -1,20 +1,12 @@
+
 package test;
 
-import contenedores.ListaDoble;
+import contenedores.ListaDobleEnteros;
 import javax.swing.JOptionPane;
 
-public class ListaDobleEnteros extends ListaDoble {
 
-    /*
-    public ListaDobleEnteros() {
-        super();
-    }
-     */
-    @Override
-    public void imprimeElemento(Object obj) {
-        System.out.print("[" + obj.toString() + "] --->");
-    }
-
+public class ListaDobleEnterosTest {
+    
     public static void main(String Args[]) {
         int opcion = 0;
         ListaDobleEnteros lista = new ListaDobleEnteros();
@@ -25,7 +17,7 @@ public class ListaDobleEnteros extends ListaDoble {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Agregar un elemento a la lista\n 2. Eliminar un elemento de la lista\n 3. Recorrer Lista"
                         + "\n 4. Mostrar el Tamaño de la Lista\n 5. Buscar un Elemewnto\n"
                         + " 6. Mostrar Elemento segun Posicion\n "
-                        + "7. Recorrer al Reves\n 8. Salir", "Menú de Opciones para Lista Doblemente Enlazada", 3));
+                        + "7. Recorrer al Reves\n 8. Salir\n", "Menú de Opciones para Lista Doblemente Enlazada", 3));
                 switch (opcion) {
                     case 1:
                         try {
@@ -89,12 +81,8 @@ public class ListaDobleEnteros extends ListaDoble {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 3);
             }
-        } while (opcion != 7);
+        } while (opcion != 8);
     }
-
-    @Override
-    public int buscar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
+    
 }
