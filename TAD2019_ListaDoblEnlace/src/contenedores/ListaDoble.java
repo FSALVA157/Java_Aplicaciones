@@ -54,10 +54,10 @@ public abstract class ListaDoble implements IListaDoble, IListaDoble2 {
                     }else{
                         Nodo puntAnt = this.inicio;
                         Nodo puntSig = this.inicio.getSiguiente();
-                        int contAux = 0;
+                        int contAux = 1;
                         while(contAux < posicion){
                             puntAnt = puntSig;
-                            puntSig= puntSig.getSiguiente();
+                            puntSig = puntSig.getSiguiente();
                             contAux++;
                         }
                         puntSig = puntSig.getSiguiente();
@@ -132,7 +132,7 @@ public abstract class ListaDoble implements IListaDoble, IListaDoble2 {
                     this.fin = new Nodo(obj, fin, null);
                     this.fin.getAnterior().setSiguiente(fin);
                 } else {
-                    int contAux = 0;
+                    int contAux = 1;
                     Nodo puntAux = this.inicio;
                     while (contAux < posicion) {
                         puntAux = puntAux.getSiguiente();
@@ -154,7 +154,6 @@ public abstract class ListaDoble implements IListaDoble, IListaDoble2 {
            System.out.println("NADA QUE MOSTRAR: LISTA VACIA");
        }else{
             Nodo puntAux = this.inicio;
-                            
             
             while(puntAux != null){
                 this.imprimeElemento(puntAux.getDato());

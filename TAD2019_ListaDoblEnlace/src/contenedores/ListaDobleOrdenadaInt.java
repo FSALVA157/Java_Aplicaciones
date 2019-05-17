@@ -25,6 +25,11 @@ public class ListaDobleOrdenadaInt extends ListaDobleOrdenada{
     public boolean esMenorQue(Object obj1, Object obj2) {
       return ((int)obj1 < (int)obj2);
     }
+
+    @Override
+    public void imprimeElemento(Object obj) {
+        System.out.print("[" + obj.toString() + "] --->");
+    }
     
     
     

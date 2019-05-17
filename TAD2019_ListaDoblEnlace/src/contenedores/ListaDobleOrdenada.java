@@ -19,6 +19,7 @@ public abstract class ListaDobleOrdenada extends ListaDoble implements IListaDob
         while (base <= techo) {
             medio = (base + techo) / 2;
             if (this.esIgual(obj, this.seek(medio))) {
+                
                 return medio;
             } else if (esMenorQue(obj, this.seek(medio))) {
                 techo = medio - 1;
@@ -27,13 +28,14 @@ public abstract class ListaDobleOrdenada extends ListaDoble implements IListaDob
                 base = medio + 1;
             }
         }
+        
         return -1;
     }
 
     @Override
-    public void imprimeElemento(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public abstract void imprimeElemento(Object obj);
+       
+    
 
     @Override
     public void push(Object obj) {
@@ -67,13 +69,15 @@ public abstract class ListaDobleOrdenada extends ListaDoble implements IListaDob
     }
 
     @Override
-    public void pop(Object obj) {
+    public void popObject(Object obj) {
         if(!estaVacia()){
             //sacar la primera ocurrencia de un elemento
             int posicion = -1;
             posicion = this.buscar(obj);
             if(posicion != -1){
                 this.pop(posicion);
+            }else{
+                System.out.println("EL ELEMENTO SOLICITADO NO SE ENCUENTRA EN LA LISTA");
             }
             
         }else{

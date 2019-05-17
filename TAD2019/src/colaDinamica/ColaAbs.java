@@ -2,7 +2,7 @@
 package colaDinamica;
 
 import recursos.*;
-public class Cola implements IContenedor{
+public abstract class ColaAbs implements IContenedor,ICola2{
    Nodo inicio;
    Nodo fin;
    int contador;
@@ -11,7 +11,7 @@ public class Cola implements IContenedor{
         inicio = fin = new Nodo(elemento);
     }
     */
-    public Cola(){
+    public ColaAbs(){
         this.limpiar();
     }
 
@@ -76,4 +76,29 @@ public class Cola implements IContenedor{
             System.out.println("NADA QUE MOSTRAR: LA COLA ESTA VACIA");
         }
     }
+    
+    
+   @Override
+    public void meterConPrioridad(Object obj,int prioridad){
+        if(this.estaVacia()){
+            this.inicio = this.fin = new Nodo(obj);
+            
+        }else{
+            if(this.esMenorQue(obj, this.fin.getDato()) || this.esIgual(obj, this.fin.getDato() )){
+                this.fin.setSiguiente(new Nodo(obj));
+                this.fin = this.fin.getSiguiente();
+            }else{
+                Nodo puntAux = 
+            }
+        }
+        
+    }
+    
+    public abstract boolean esIgual(Object obj1, Object obj2);
+
+    public abstract boolean esMayorQue(Object obj1, Object obj2);
+
+    public abstract boolean esMenorQue(Object obj1, Object obj2);
+
+
 }

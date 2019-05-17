@@ -34,7 +34,8 @@ public class TestDobleOrdenadaInt extends ListaDobleOrdenadaInt {
                         try {
                             elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el Entero a eliminar de la lista",
                                     "Eliminar Elemento", 3));
-                            lista.pop(elemento);
+                            lista.popObject(elemento);
+                           
                         } catch (Exception e) {
                             JOptionPane.showMessageDialog(null, e.getMessage(), "Error en el Pop", 3);
                         }
