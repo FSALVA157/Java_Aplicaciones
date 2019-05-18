@@ -69,7 +69,8 @@ public abstract class ColaAbs implements IContenedor,ICola2{
         if(!this.estaVacia()){
         Nodo auxiliar = this.inicio;
         while(auxiliar != null){
-            System.out.print("[" + auxiliar.getDato().toString() + "]--->");
+            //System.out.print("[" + auxiliar.getDato().toString() + "]--->");
+            this.imprimir(auxiliar.getDato());
             auxiliar = auxiliar.getSiguiente();
         }
     }else{
@@ -82,20 +83,36 @@ public abstract class ColaAbs implements IContenedor,ICola2{
     public void meterConPrioridad(Object obj){
         if(this.estaVacia()){
             this.inicio = this.fin = new Nodo(obj);
-            
+            System.out.println("TEST: SE AGREGO A COLA VACIA");
         }else{
             if(this.esMenorQue(obj, this.fin.getDato()) || this.esIgual(obj, this.fin.getDato() )){
+                System.out.println("TEST: ENTRANDO POR AGREGAR POR LA COLA");
                 this.fin.setSiguiente(new Nodo(obj));
                 this.fin = this.fin.getSiguiente();
             }else{
                 Nodo puntAux = this.inicio;
-                while(this.esMayorQue(obj, puntAux.getSiguiente().getDato())&&(puntAux != null)){
+                if(inicio == fin){
+                    if(esMayorQue(obj,puntAux.getDato())){
+                        inicio = new Nodo(obj,inicio);
+                        System.out.println("TEST: SE AGREGO EN LA CABEZA");
+                    }else{
+                        inicio.setSiguiente(new Nodo(obj));
+                        fin = fin.getSiguiente();
+                        System.out.println("TEST: SE AGREGO EN SEGUNDO LUGAR DE LA COLA");
+                    }
+                }else{
+                
+                while((this.esMayorQue(obj, puntAux.getSiguiente().getDato())|| this.esIgual(obj, puntAux.getSiguiente().getDato()))&&(puntAux != null)){
                     puntAux = puntAux.getSiguiente();
                 }
                     puntAux.setSiguiente(new Nodo(obj,puntAux.getSiguiente()));
+                    System.out.println("TEST: SE AGREGO EN EL CUERPO DE LA COLA");
             }
+            }
+            
         }
         
+        this.contador++;
     }
     
     public abstract boolean esIgual(Object obj1, Object obj2);
@@ -103,6 +120,8 @@ public abstract class ColaAbs implements IContenedor,ICola2{
     public abstract boolean esMayorQue(Object obj1, Object obj2);
 
     public abstract boolean esMenorQue(Object obj1, Object obj2);
+    
+    public abstract void imprimir(Object obj);
 
 
 }

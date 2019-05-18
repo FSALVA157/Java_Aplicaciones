@@ -4,6 +4,7 @@ package collaPrioridadTest;
 import colaDinamica.ColaDePrioridadReg;
 import colaDinamica.RegistroBancario;
 import javax.swing.JOptionPane;
+import jdk.nashorn.internal.codegen.CompilerConstants;
 
 
 public class ColaPrioridadRegistroTest extends ColaDePrioridadReg {
@@ -32,7 +33,7 @@ public class ColaPrioridadRegistroTest extends ColaDePrioridadReg {
                                     "IPRIORIDAD", 3));
                             reg.setPrioridad(prioridad);
                                                         
-                            cola.meterConPrioridad(reg);
+                            cola.meterConPrioridad(new RegistroBancario(id, nombre, prioridad));
 
                         } catch (Exception n) {
                             JOptionPane.showMessageDialog(null, n.getMessage(), "Error en el Push", 3);
@@ -55,7 +56,7 @@ public class ColaPrioridadRegistroTest extends ColaDePrioridadReg {
                     case 5:
                         break;
                     case 6:
-                        
+                       
                         break;
                     case 7:
                         break;
