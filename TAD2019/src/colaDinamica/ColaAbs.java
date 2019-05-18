@@ -79,7 +79,7 @@ public abstract class ColaAbs implements IContenedor,ICola2{
     
     
    @Override
-    public void meterConPrioridad(Object obj,int prioridad){
+    public void meterConPrioridad(Object obj){
         if(this.estaVacia()){
             this.inicio = this.fin = new Nodo(obj);
             
@@ -88,7 +88,11 @@ public abstract class ColaAbs implements IContenedor,ICola2{
                 this.fin.setSiguiente(new Nodo(obj));
                 this.fin = this.fin.getSiguiente();
             }else{
-                Nodo puntAux = 
+                Nodo puntAux = this.inicio;
+                while(this.esMayorQue(obj, puntAux.getSiguiente().getDato())&&(puntAux != null)){
+                    puntAux = puntAux.getSiguiente();
+                }
+                    puntAux.setSiguiente(new Nodo(obj,puntAux.getSiguiente()));
             }
         }
         
