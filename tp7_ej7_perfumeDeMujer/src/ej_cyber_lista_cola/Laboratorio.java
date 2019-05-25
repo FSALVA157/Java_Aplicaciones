@@ -29,6 +29,8 @@ public class Laboratorio extends listaSimpleFer.Lista {
                }
                this.meter(compu, posicion);
            }
+       }else{
+           System.out.println("NADA QUE ACTUALIZAR LA LISTA ESTA VACIA");
        }
    }
    public boolean buscarPc(Alumno op){
@@ -40,6 +42,7 @@ public class Laboratorio extends listaSimpleFer.Lista {
            if(!compu.isEstado()){
                this.meter(op, punt);
                bandera = false;
+               //voy a calcular el tiempo de ocupacion
            }
            punt++;
        }
