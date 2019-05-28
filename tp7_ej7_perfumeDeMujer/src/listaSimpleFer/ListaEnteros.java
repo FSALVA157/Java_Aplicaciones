@@ -1,9 +1,8 @@
 package listaSimpleFer;
 
-import com.sun.org.apache.xml.internal.serializer.utils.MsgKey;
-import com.sun.xml.internal.ws.commons.xmlutil.Converter;
+
 import javax.swing.JOptionPane;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ErrorMessages;
+
 
 public class ListaEnteros extends Lista {
 
