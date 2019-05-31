@@ -58,5 +58,16 @@ public class MatrizArr {
     return objAux;
     }
     
+    //hare un metodo que muestra la matriz
+    public void recorrerMatriz(){
+        for(int i = 0; i < this.getNroFilas();i++){
+            System.out.print("|");
+            for(int j = 0; j < this.getNroColumnas();j++){
+               
+                System.out.print(this.matriz[i][j].toString() + " - ");
+            }
+            System.out.println("|");
+        }
+    }
     
 }
