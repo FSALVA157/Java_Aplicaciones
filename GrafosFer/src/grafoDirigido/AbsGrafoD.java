@@ -22,7 +22,7 @@ public abstract class AbsGrafoD implements TADGrafoD {
         return this.ordenGrafo;
     }
 
-    //trabajare sobre dikstra
+    //trabajare sobre dijkstra
     private void Dijkstra(int startVertex) {
         double minCost, currCost, arcCost;
         int minVertex, vertex;
