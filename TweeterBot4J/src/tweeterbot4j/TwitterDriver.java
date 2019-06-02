@@ -50,7 +50,7 @@ import java.util.Scanner;
          // Problem 3
          // Find all Spurs-related tweets in a 20 mile radius around San Antonio
          // in the past day.
-         bigBird.saQuery("Bruno Mars");
+         bigBird.saQuery("Salta Argentina");
 
       }//main         
          
