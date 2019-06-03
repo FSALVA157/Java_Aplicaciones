@@ -59,7 +59,7 @@ public abstract class AbsGrafoD implements TADGrafoD {
                     vertex = (int) listaSolucion.seek(w);
                     currCost = (double) listaDistancia.seek(w);
                     if ((vertex == -1) && (currCost < minCost)) {
-                        minVertex = vertex;
+                        minVertex = w;
                         minCost = currCost;
                     }
                 }
@@ -72,6 +72,7 @@ public abstract class AbsGrafoD implements TADGrafoD {
                     vertex = (int) this.listaSolucion.seek(v);
                     if (vertex == -1) {
                         currCost = (double) this.listaDistancia.seek(v);
+                        System.out.println("VALOR DE MINVERTEX ANTES DEL ERROR: " + minVertex + "VALOR DE V PARA COMPLETAR COORDENADAS EN MATRIZ: " + v);
                         arcCost = (double) this.matrizCosto.seek(minVertex, v);
                         if (minCost + arcCost < currCost) {
                             this.listaCamino.actualiza(minVertex, v);
