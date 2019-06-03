@@ -63,6 +63,7 @@ public abstract class AbsGrafoD implements TADGrafoD {
                         minCost = currCost;
                     }
                 }
+            }
                 System.out.println("it " + i + " minVertex " + minVertex + " minCost " + minCost);
 
                 this.listaSolucion.actualiza(minVertex, minVertex);
@@ -82,7 +83,7 @@ public abstract class AbsGrafoD implements TADGrafoD {
                     }
                 }
 
-            }
+            
         }
 
     }
