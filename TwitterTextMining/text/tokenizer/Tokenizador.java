@@ -25,7 +25,7 @@ public class Tokenizador {
                 archString = sb.toString();
                 
         } catch (Exception e) {
-            archString = e.getMessage();
+            archString = e.getMessage(); 
         }
         finally{
             fr.close();
