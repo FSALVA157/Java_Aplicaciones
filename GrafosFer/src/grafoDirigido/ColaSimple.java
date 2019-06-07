@@ -10,15 +10,15 @@ public class ColaSimple {
     }
 
 //metodos
-    private void limpiar() {
+    public void limpiar() {
         this.frente = this.cola = null;
     }
 
-    private boolean estaVacia() {
+    public boolean estaVacia() {
         return this.frente == null;
     }
 
-    private void meter(Object obj) {
+    public void meter(Object obj) {
         if (this.estaVacia()) {
             this.frente = this.cola = new NodoSimple(obj);
         } else {
@@ -27,7 +27,7 @@ public class ColaSimple {
         }
     }
 
-    private Object sacar() {
+    public Object sacar() {
         Object objAux = null;
         if (!this.estaVacia()) {
             objAux = this.frente.getDato();
@@ -42,7 +42,7 @@ public class ColaSimple {
         return objAux;
     }
     
-    private void recorrerCola(){
+    public void recorrerCola(){
         if(!this.estaVacia()){
             NodoSimple puntAux = this.frente;
             while(puntAux != null){

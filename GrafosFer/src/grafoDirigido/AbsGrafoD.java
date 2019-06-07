@@ -1,5 +1,7 @@
 package grafoDirigido;
 
+import com.sun.xml.internal.ws.model.RuntimeModeler;
+
 public abstract class AbsGrafoD implements TADGrafoD {
 
     protected int ordenGrafo;
@@ -115,15 +117,76 @@ public abstract class AbsGrafoD implements TADGrafoD {
 
     }
 
+    public void bea(ListaDoble listaMarca,int v){
+        boolean marca;
+        double currentCoast;
+        ColaSimple cola = new ColaSimple();
+        int w;
+        
+        listaMarca.actualiza(true, v);
+        System.out.println("vertice" + v);        
+        cola.meter(v);
+        
+        while(!cola.estaVacia()){
+            
+        }
+        
+    }
+    
     @Override
     public void muestraBEA() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ListaDoble listaMarca = new ListaDoble();
+        boolean marca;
+        
+        for(int v = 0 ; v < this.getOrden(); v++){
+            listaMarca.meter(false, v);
+        }
+        
+        for(int w = 0; w < this.getOrden(); w++){
+            marca = (boolean)listaMarca.seek(w);
+            if(!marca){
+                bea(listaMarca,w);
+            }
+        }
+                
     }
 
-    @Override
-    public void muestraBPF() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void bpf(ListaDoble listaMarca,int v) {
+        double currCost;
+        boolean marcado;
+        
+        //la lista ya viene llenada con falsos
+        //comienzo el recorrido marcando la posicion del vector a verdadero
+        listaMarca.actualiza(true, v);
+        System.out.println("VERTICE:" + v);
+        for(int w = 0; w < this.getOrden(); w++){
+            marcado = (boolean)listaMarca.seek(w);
+            currCost = ((Number)this.matrizCosto.seek(v, w)).doubleValue();
+            if((currCost != infinito)&&(!marcado)){
+                bpf(listaMarca, w);
+            }
+        }
+      }
+    
+     @Override
+    public void muestraBPF() 
+    {
+        boolean marca;
+        ListaDoble listaMarca = new ListaDoble();
+        
+        //llenar la lista de falsos
+        for(int v=0; v < this.getOrden(); v++){
+            listaMarca.meter(false, v);
+        }
+        
+        for(int v=0; v < this.getOrden(); v++){
+           if(!(boolean)listaMarca.seek(v)){
+                bpf(listaMarca, v);
+           }
+        }
     }
+    
 
     @Override
     public void muestraFloyd() {
@@ -137,29 +200,39 @@ public abstract class AbsGrafoD implements TADGrafoD {
                 matrizCaminoF.actualizaElemento(-1, i, j);
             }
         }
-        //verifiquemos el estado de las dos matrices
-        System.out.println("------------La matriz de costos inicial para floyd es----------");
-        this.matrizCostoF.recorrerMatriz();
-        System.out.println("------------La matriz de costos inicial para floyd es----------");
-        System.out.println("------------La matriz de caminos inicial para floyd es----------");
-        this.matrizCaminoF.recorrerMatriz();
-        System.out.println("----------------------");
-        //ahora empieza el corazon del algoritmo
         //vamos a llenar la diagonal de ceros
         for(int w = 0; w < this.getOrden(); w++){
             this.matrizCostoF.actualizaElemento(0, w, w);
         }
+        
+        //verifiquemos el estado de las dos matrices
+        System.out.println("------------La matriz de costos inicial para floyd es----------");
+        this.matrizCostoF.recorrerMatriz();
+        System.out.println("----------------------");
+        System.out.println("------------La matriz de caminos inicial para floyd es----------");
+        this.matrizCaminoF.recorrerMatriz();
+        System.out.println("----------------------");
+        //ahora empieza el corazon del algoritmo
+              
         //ahora debo recorrer las filas y columnas parado en el nodo k y comparar los costos de su suma y el actual
         for (int k = 0; k < this.getOrden(); k++) {
             for (int i = 0; i < this.getOrden(); i++) {
                 for (int j = 0; j < this.getOrden(); j++) {
-                    if(((double)this.matrizCostoF.seek(k, j) + (double)this.matrizCostoF.seek(i,k)) < (double) this.matrizCostoF.seek(i, j)){
-                        this.matrizCostoF.actualizaElemento((double)this.matrizCostoF.seek(k, j) + (double)this.matrizCostoF.seek(i,k), i, j);
-                        this.matrizCaminoF.actualizaElemento(k, i, j);
+                  
+                    if(((Number)this.matrizCostoF.seek(k, j)).doubleValue() + ((Number)this.matrizCostoF.seek(i,k)).doubleValue() < ((Number) this.matrizCostoF.seek(i, j)).doubleValue()){
+                        this.matrizCostoF.actualizaElemento(((Number)this.matrizCostoF.seek(k, j)).doubleValue() + ((Number)this.matrizCostoF.seek(i,k)).doubleValue(), i, j);
+                        this.matrizCaminoF.actualizaElemento(new Integer(k), i, j);
                     }
+
                 }
             }
         }
+         System.out.println("------------MATRIZ SOLUCION PARA FLOYD----------");
+        this.matrizCostoF.recorrerMatriz();
+        System.out.println("----------------------");
+        System.out.println("------------MATRIZ DE CAMINOS SOLUCION PARA FLOYD----------");
+        this.matrizCaminoF.recorrerMatriz();
+        System.out.println("----------------------");
 
     }
 
