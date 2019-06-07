@@ -57,12 +57,16 @@ public abstract class AbsGrafoD implements TADGrafoD {
             minCost = infinito;
 
             for (int w = 0; w < this.getOrden(); w++) {
+                System.out.println("Entrando con valor w = " + w);
                 if (w != startVertex) {
+                    System.out.println("Entrando con valor w = " + w + " a modificar los valores");
                     vertex = (int) listaSolucion.seek(w);
                     currCost = (double) listaDistancia.seek(w);
                     if ((vertex == -1) && (currCost < minCost)) {
+                        System.out.println("modificando valores ");
                         minVertex = w;
                         minCost = currCost;
+                        
                     }
                 }
             }
