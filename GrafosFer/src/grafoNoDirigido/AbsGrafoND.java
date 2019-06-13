@@ -80,7 +80,7 @@ public abstract class AbsGrafoND implements TADGrafoND {
     private void Kruskal(){
 		double currCost; int counter; int n,k, posI, posJ; boolean flag;
 		Conexion conexion;
-		clsGraphPriorityQueue colaP = new clsGraphPriorityQueue();
+		ColaPrioridadConexiones colaP = new ColaPrioridadConexiones();
 		clsIntegerSet conjuntoE = new clsIntegerSet();
 		clsIntegerSet conjuntoU = new clsIntegerSet();
 
