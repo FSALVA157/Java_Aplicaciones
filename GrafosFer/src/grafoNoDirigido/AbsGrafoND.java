@@ -79,7 +79,7 @@ public abstract class AbsGrafoND implements TADGrafoND {
     
     private void Kruskal(){
 		double currCost; int counter; int n,k, posI, posJ; boolean flag;
-		clsConnection conexion;
+		Conexion conexion;
 		clsGraphPriorityQueue colaP = new clsGraphPriorityQueue();
 		clsIntegerSet conjuntoE = new clsIntegerSet();
 		clsIntegerSet conjuntoU = new clsIntegerSet();
@@ -96,14 +96,14 @@ public abstract class AbsGrafoND implements TADGrafoND {
 			for (int j=i+1;j<getOrden();j++){
 				currCost=(double)this.matrizCosto.devolver(i, j);
 				if (currCost!=infinito){
-					colaP.meter(new clsConnection(i, j, currCost));
+					colaP.meter(new Conexion(i, j, currCost));
 				}
 			}
 		}
 		
 		counter=getOrden();
 		while (counter>1){
-			conexion=(clsConnection)colaP.sacar();
+			conexion=(Conexion)colaP.sacar();
 			System.out.println("arista " + conexion.getVertexI() + " " + conexion.getVertexJ() + ":" + conexion.getConnectionCost());
 
 			n=listaArbol.tamanio()-1;
