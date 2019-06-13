@@ -6,11 +6,7 @@ public abstract class ColaAbs implements IContenedor,ICola2{
    Nodo inicio;
    Nodo fin;
    int contador;
-   /* 
-    public Cola(Object elemento){
-        inicio = fin = new Nodo(elemento);
-    }
-    */
+   
     public ColaAbs(){
         this.limpiar();
     }
