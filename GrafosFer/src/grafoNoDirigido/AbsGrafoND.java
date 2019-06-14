@@ -96,7 +96,7 @@ public abstract class AbsGrafoND implements TADGrafoND {
 			for (int j=i+1;j<getOrden();j++){
 				currCost=(double)this.matrizCosto.seek(i, j);
 				if (currCost!=infinito){
-					colaP.meter(new Conexion(i, j, currCost));
+					colaP.meterConPrioridad(new Conexion(i, j, currCost));
 				}
 			}
 		}

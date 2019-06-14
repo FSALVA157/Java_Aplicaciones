@@ -74,21 +74,21 @@ public abstract class ColaAbs implements IContenedor,ICola2{
         }
     }
     
-    
+    //este metodo debi adaptarlo para que ordene de menor a mayor en el caso de Kruskall solo es util de esa manera
    @Override
     public void meterConPrioridad(Object obj){
         if(this.estaVacia()){
             this.inicio = this.fin = new Nodo(obj);
             
         }else{
-            if(this.esMenorQue(obj, this.fin.getDato()) || this.esIgual(obj, this.fin.getDato() )){
+            if(this.esMayorQue(obj, this.fin.getDato()) || this.esIgual(obj, this.fin.getDato() )){
                 
                 this.fin.setSiguiente(new Nodo(obj));
                 this.fin = this.fin.getSiguiente();
             }else{
                 Nodo puntAux = this.inicio;
                 if(inicio == fin){
-                    if(esMayorQue(obj,puntAux.getDato())){
+                    if(esMenorQue(obj,puntAux.getDato())){
                         inicio = new Nodo(obj,inicio);
                         
                     }else{
@@ -97,11 +97,11 @@ public abstract class ColaAbs implements IContenedor,ICola2{
                         
                     }
                 }else{
-                    if(esMayorQue(obj, inicio.getDato())){
+                    if(esMenorQue(obj, inicio.getDato())){
                         inicio = new Nodo(obj,inicio);
                         
                     }else{
-                         while((this.esMenorQue(obj, puntAux.getSiguiente().getDato())|| this.esIgual(obj, puntAux.getSiguiente().getDato()))&&(puntAux != null)){
+                         while((this.esMayorQue(obj, puntAux.getSiguiente().getDato())|| this.esIgual(obj, puntAux.getSiguiente().getDato()))&&(puntAux != null)){
                     puntAux = puntAux.getSiguiente();
                 }
                     puntAux.setSiguiente(new Nodo(obj,puntAux.getSiguiente()));
