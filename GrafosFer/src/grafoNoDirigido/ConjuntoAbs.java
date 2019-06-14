@@ -16,7 +16,7 @@ public abstract class ConjuntoAbs extends Lista implements IConjunto {
 
     public abstract String imprime(Object obj);
 
-    //este metodo buscar pertenece al conjunto porque no permite ingreso de elementos duplicados
+    //este metodo meter pertenece al conjunto porque no permite ingreso de elementos duplicados
     @Override
     public void meter(Object obj) {
         if (!this.estaVacia()) {
