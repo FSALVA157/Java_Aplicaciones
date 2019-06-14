@@ -81,20 +81,20 @@ public abstract class AbsGrafoND implements TADGrafoND {
 		double currCost; int counter; int n,k, posI, posJ; boolean flag;
 		Conexion conexion;
 		ColaPrioridadConexiones colaP = new ColaPrioridadConexiones();
-		clsIntegerSet conjuntoE = new clsIntegerSet();
-		clsIntegerSet conjuntoU = new clsIntegerSet();
+		ConjuntoInt conjuntoE;// = new ConjuntoInt();
+		ConjuntoInt conjuntoU;// = new ConjuntoInt();
 
-		clsListaDoubleLinkedL listaArbol = new clsListaDoubleLinkedL();
+		ListaDoble listaArbol = new ListaDoble();
 		
 		for (int i=0;i<getOrden();i++){
-			conjuntoE = new clsIntegerSet();
+			conjuntoE = new ConjuntoInt();
 			conjuntoE.meter(i);
-			listaArbol.insertar(conjuntoE, i);			
+			listaArbol.meter(conjuntoE, i);			
 		}
 		
 		for (int i=0; i<getOrden();i++){
 			for (int j=i+1;j<getOrden();j++){
-				currCost=(double)this.matrizCosto.devolver(i, j);
+				currCost=(double)this.matrizCosto.seek(i, j);
 				if (currCost!=infinito){
 					colaP.meter(new Conexion(i, j, currCost));
 				}
@@ -106,13 +106,13 @@ public abstract class AbsGrafoND implements TADGrafoND {
 			conexion=(Conexion)colaP.sacar();
 			System.out.println("arista " + conexion.getVertexI() + " " + conexion.getVertexJ() + ":" + conexion.getConnectionCost());
 
-			n=listaArbol.tamanio()-1;
+			n=listaArbol.getTamanio()-1;
 			k=0; flag=false;
 			posI=posJ=-1;
 			while (k<=n && !flag){
-				conjuntoE=(clsIntegerSet)listaArbol.devolver(k);
+				conjuntoE=(ConjuntoInt)listaArbol.seek(k);
 				System.out.println("mostrando conjunto parcial de vertices k=" + k);
-				conjuntoE.muestra();
+				conjuntoE.mostrar();
 				if (conjuntoE.pertenece(conexion.getVertexI())){
 					posI=k;
 				}
@@ -129,10 +129,10 @@ public abstract class AbsGrafoND implements TADGrafoND {
 			
 			if (!flag){
 				System.out.println("Arbol Minimo, Arista " + conexion.getVertexI() + " " + conexion.getVertexJ());
-				conjuntoU = new clsIntegerSet();
-				conjuntoU.union((clsIntegerSet)listaArbol.devolver(posI), (clsIntegerSet)listaArbol.devolver(posJ));
-				listaArbol.reemplazar(conjuntoU, posI);
-				listaArbol.eliminar(posJ);
+				conjuntoU = new ConjuntoInt();
+				conjuntoU.union((ConjuntoInt)listaArbol.seek(posI), (ConjuntoInt)listaArbol.seek(posJ));
+				listaArbol.actualiza(conjuntoU, posI);
+				listaArbol.sacar(posJ);
 				counter--;				
 			}			
 		}
