@@ -15,9 +15,9 @@ public class TestGrafoD {
             grafo = new GrafoDirigido(grado);
             grafo.cargaGrafo();
             grafo.muestraGrafo();
-           // grafo.muestraDijkstra(0);
+            grafo.muestraDijkstra(0);
          //  grafo.muestraFloyd();
-         grafo.muestraBPF();
+     //    grafo.muestraBPF();
         } else {
             System.out.println("ERROR: EL ORDEN DEL GRAFO DEBE SER POSITIVO");
         }
