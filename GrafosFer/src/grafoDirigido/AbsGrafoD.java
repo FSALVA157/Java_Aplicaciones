@@ -1,6 +1,6 @@
 package grafoDirigido;
 
-import com.sun.xml.internal.ws.model.RuntimeModeler;
+
 
 public abstract class AbsGrafoD implements TADGrafoD {
 
@@ -8,8 +8,6 @@ public abstract class AbsGrafoD implements TADGrafoD {
     protected MatrizGrafo matrizCosto, matrizCostoF, matrizCaminoF;
     static final double infinito = 10000.0;
     protected ListaDoble listaSolucion, listaCamino, listaDistancia;
-
-    ;
     
     public AbsGrafoD(int ordenGrafo) {
         this.ordenGrafo = ordenGrafo;
@@ -57,13 +55,13 @@ public abstract class AbsGrafoD implements TADGrafoD {
             minCost = infinito;
 
             for (int w = 0; w < this.getOrden(); w++) {
-                System.out.println("Entrando con valor w = " + w);
+                
                 if (w != startVertex) {
-                    System.out.println("Entrando con valor w = " + w + " a modificar los valores");
+                    
                     vertex = (int) listaSolucion.seek(w);
                     currCost = (double) listaDistancia.seek(w);
                     if ((vertex == -1) && (currCost < minCost)) {
-                        System.out.println("modificando valores ");
+                        
                         minVertex = w;
                         minCost = currCost;
                         
@@ -79,7 +77,7 @@ public abstract class AbsGrafoD implements TADGrafoD {
                     vertex = (int) this.listaSolucion.seek(v);
                     if (vertex == -1) {
                         currCost = (double) this.listaDistancia.seek(v);
-                        System.out.println("VALOR DE MINVERTEX ANTES DEL ERROR: " + minVertex + "VALOR DE V PARA COMPLETAR COORDENADAS EN MATRIZ: " + v);
+                        
                         arcCost = (double) this.matrizCosto.seek(minVertex, v);
                         if (minCost + arcCost < currCost) {
                             this.listaCamino.actualiza(minVertex, v);
