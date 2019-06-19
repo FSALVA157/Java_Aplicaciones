@@ -237,6 +237,23 @@ public abstract class AbsGrafoD implements TADGrafoD {
         System.out.println("----------------------");
 
     }
+    public void buscaCaminoFloyd(int i,int j){
+        Object valor = null;
+        if (((Number)matrizCaminoF.seek(i, j)).intValue() != -1){
+            int k = ((Number)matrizCaminoF.seek(i, j)).intValue();
+            buscaCaminoFloyd(i, k);
+            System.out.print("" + k);
+            buscaCaminoFloyd(k, j);
+        }
+    }
+    
+    public void muestraCaminoFloyd(int origen, int destino){
+        System.out.print("camino entre " + origen + " y " + destino + ":");
+        System.out.print(origen);
+        buscaCaminoFloyd(origen, destino);
+        System.out.print(" " + destino);
+        System.out.println("");
+    }
 
     @Override
     public void muestraGrafo() {
