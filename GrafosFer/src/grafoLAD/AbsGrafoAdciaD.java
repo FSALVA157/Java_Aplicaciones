@@ -1,6 +1,8 @@
 
 package grafoLAD;
 
+import grafoLAD.recursos.IOperacionesG;
+
 
 public abstract class AbsGrafoAdciaD implements IOperacionesG {
     protected ListaVerticesAdcia matrizDinGrafo;

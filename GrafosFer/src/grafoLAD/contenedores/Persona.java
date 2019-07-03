@@ -1,11 +1,12 @@
 
-package grafoLAD;
+package grafoLAD.contenedores;
 
 
 public class Persona {
 private String nombre;
 private String apellido;
 private int dni;
+
 
     public Persona() {
     }

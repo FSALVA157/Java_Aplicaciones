@@ -1,5 +1,5 @@
 
-package grafoLAD;
+package grafoLAD.recursos;
 
 
 public interface IOperacionesGD {
