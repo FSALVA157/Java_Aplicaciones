@@ -1,6 +1,7 @@
 
 package grafoLAD;
 
+import grafoLAD.recursos.Arco;
 import grafoNoDirigido.ConjuntoAbs;
 
 

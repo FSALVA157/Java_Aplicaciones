@@ -3,6 +3,7 @@ package com.empresa.proyecto.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,10 +28,17 @@ public class ServletDatos extends HttpServlet {
       request.setCharacterEncoding("UTF-8");
       
       String nombre = request.getParameter("nombre");
+      String genero = request.getParameter("genero");
+      String estudios = request.getParameter("estudios");
+      String[] deportes = request.getParameterValues("deportes");
+      String[] pasatiempos = request.getParameterValues("pasatiempos");
       
       HttpSession session = request.getSession();
       session.setAttribute("nombre", nombre);
-      
+      session.setAttribute("genero", genero);
+      session.setAttribute("estudios", estudios);
+      session.setAttribute("deportes", Arrays.toString(deportes));
+      session.setAttribute("pasatiempos", Arrays.toString(pasatiempos));
       response.sendRedirect("salida.jsp");
       
     }

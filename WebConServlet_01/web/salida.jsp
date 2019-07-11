@@ -13,8 +13,32 @@
     </head>
     <body>
         <h1>DATOS RECIBIDOS</h1>
-        <p>
-            ${nombre}
-        </p>
+        <table style="margin: auto">
+            <tbody>
+                <tr>
+                    <td>nombre</td>
+                    <td>${nombre}</td>
+                </tr>
+                <tr>
+                    <td>genero</td>
+                    <td>${genero}</td>
+                </tr>
+                <tr>
+                    <td>estudios</td>
+                    <td>${estudios}</td>
+                </tr>
+                <tr>
+                    <td>deportes</td>
+                    <td>${deportes}</td>
+                </tr>
+                <tr>
+                    <td>pasatiempos</td>
+                    <td>${pasatiempos}</td>
+                </tr>
+            </tbody>
+        </table>
+                <p style="text-align: center">
+                    <a href="index.jsp">Volver</a>
+                </p>
     </body>
 </html>

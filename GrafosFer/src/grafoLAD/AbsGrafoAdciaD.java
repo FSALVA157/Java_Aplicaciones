@@ -2,15 +2,13 @@
 package grafoLAD;
 
 import grafoLAD.recursos.IOperacionesG;
+import grafoLAD.recursos.VerticeAdcia;
+import grafoNoDirigido.ConjuntoAbs;
 
 
-public abstract class AbsGrafoAdciaD implements IOperacionesG {
-    protected ListaVerticesAdcia matrizDinGrafo;
+public abstract class AbsGrafoAdciaD extends ConjuntoAbs {
+    protected VerticeAdcia vertice;
     
-    public AbsGrafoAdciaD(){
-        //como resolver este problema???
-        matrizDinGrafo = new ListaVerticesAdcia();
-        }
-    }
+  
     
 }

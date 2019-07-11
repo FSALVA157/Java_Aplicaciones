@@ -4,6 +4,7 @@ package grafoLAD;
 //lista de vertices de Adyacencia - vendria a ser el equivalente a la matriz de adyacencia
 
 
+import grafoLAD.recursos.VerticeAdcia;
 import grafoNoDirigido.ConjuntoAbs;
 
 //lo hare heredar de un conjunto porque no puede tener vertices repetidos.

@@ -3,6 +3,7 @@ package grafoLAD;
 
 //voy a implementar la lista de vertices con una lista doble 
 
+import grafoLAD.recursos.VerticeAdcia;
 import grafoLAD.contenedores.Persona;
 import grafoDirigido.ListaDoble;
 import grafoNoDirigido.ConjuntoAbs;
